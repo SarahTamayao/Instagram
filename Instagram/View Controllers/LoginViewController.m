@@ -21,6 +21,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (IBAction)pressLogin:(id)sender {
+    NSString *username = self.usernameField.text;
+    NSString *password = self.passwordField.text;
+    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"User log in failed: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User logged in successfully");
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        }
+    }];
+}
+
 - (IBAction)pressSignUp:(id)sender {
     [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
 }
