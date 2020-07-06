@@ -23,6 +23,18 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)pressSignUp:(id)sender {
+    PFUser *newUser = [PFUser user];
+    newUser.username = self.usernameField.text;
+    newUser.email = self.emailField.text;
+    newUser.password = self.passwordField.text;
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        } else {
+            NSLog(@"User registered succesfully");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
     
 }
 - (IBAction)pressCancel:(id)sender {

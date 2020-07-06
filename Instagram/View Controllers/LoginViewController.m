@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -21,6 +22,7 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)pressSignUp:(id)sender {
+    [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
 }
 
 /*
