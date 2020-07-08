@@ -28,6 +28,7 @@
             NSLog(@"Error posting: %@", error.localizedDescription);
         } else {
             NSLog(@"Post was successful");
+            NSLog(@"%@", self.imageData);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
@@ -47,9 +48,8 @@
     
     // Get the image captured by the UIImagePickerController
     self.originalImage = info[UIImagePickerControllerOriginalImage];
-    self.originalImage = [self resizeImage:self.originalImage withSize:CGSizeMake(120, 120)];
+    self.originalImage = [self resizeImage:self.originalImage withSize:CGSizeMake(250, 250)];
     self.postImageView.image = self.originalImage;
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 

@@ -7,6 +7,7 @@
 //
 
 #import "InstaCell.h"
+#import "DateTools.h"
 
 @implementation InstaCell
 
@@ -23,6 +24,9 @@
 
 - (void)setPost:(Post *)post {
     _post = post;
+    NSDate *date = [post updatedAt];
+    self.dateLabel.text = date.timeAgoSinceNow;
+    NSLog(@"%@", date);
     self.postimageView.file = post[@"image"];
     [self.postimageView loadInBackground];
 }
