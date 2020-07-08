@@ -17,6 +17,7 @@
 		2FCC141424B3CAD8005F6194 /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC141324B3CAD8005F6194 /* InstagramUITests.m */; };
 		2FCC142524B3D43F005F6194 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC142424B3D43F005F6194 /* LoginViewController.m */; };
 		2FCC142824B3DAF8005F6194 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC142724B3DAF8005F6194 /* SignUpViewController.m */; };
+		2FD1956924B65B8600636107 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1956824B65B8600636107 /* DetailsViewController.m */; };
 		2FD268EF24B4EC890072B156 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268EE24B4EC890072B156 /* TimelineViewController.m */; };
 		2FD268F224B4ED6D0072B156 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F124B4ED6D0072B156 /* ProfileViewController.m */; };
 		2FD268F524B50FA70072B156 /* InstaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F424B50FA70072B156 /* InstaCell.m */; };
@@ -67,6 +68,8 @@
 		2FCC142424B3D43F005F6194 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2FCC142624B3DAF8005F6194 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		2FCC142724B3DAF8005F6194 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		2FD1956724B65B8600636107 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		2FD1956824B65B8600636107 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2FD268ED24B4EC890072B156 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		2FD268EE24B4EC890072B156 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		2FD268F024B4ED6D0072B156 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				2FD268F124B4ED6D0072B156 /* ProfileViewController.m */,
 				2FD268F624B513270072B156 /* ComposeViewController.h */,
 				2FD268F724B513270072B156 /* ComposeViewController.m */,
+				2FD1956724B65B8600636107 /* DetailsViewController.h */,
+				2FD1956824B65B8600636107 /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 			files = (
 				2FCC142524B3D43F005F6194 /* LoginViewController.m in Sources */,
 				2FCC142824B3DAF8005F6194 /* SignUpViewController.m in Sources */,
+				2FD1956924B65B8600636107 /* DetailsViewController.m in Sources */,
 				2FCC13EE24B3CAD6005F6194 /* AppDelegate.m in Sources */,
 				2FD268F824B513270072B156 /* ComposeViewController.m in Sources */,
 				2FCC13FF24B3CAD7005F6194 /* main.m in Sources */,
