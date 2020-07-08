@@ -24,11 +24,16 @@
 
 - (void)setPost:(Post *)post {
     _post = post;
+    self.captionLabel.text = post[@"caption"];
+    PFUser *user = post[@"author"];
+    self.usernameLabel.text = user.username;
     NSDate *date = [post updatedAt];
     self.dateLabel.text = date.timeAgoSinceNow;
     NSLog(@"%@", date);
     self.postimageView.file = post[@"image"];
     [self.postimageView loadInBackground];
+    self.profilePic.file = user[@"profilePic"];
+    [self.profilePic loadInBackground];
 }
 
 @end
