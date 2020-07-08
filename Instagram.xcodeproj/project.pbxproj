@@ -19,6 +19,9 @@
 		2FCC142824B3DAF8005F6194 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC142724B3DAF8005F6194 /* SignUpViewController.m */; };
 		2FD268EF24B4EC890072B156 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268EE24B4EC890072B156 /* TimelineViewController.m */; };
 		2FD268F224B4ED6D0072B156 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F124B4ED6D0072B156 /* ProfileViewController.m */; };
+		2FD268F524B50FA70072B156 /* InstaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F424B50FA70072B156 /* InstaCell.m */; };
+		2FD268F824B513270072B156 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F724B513270072B156 /* ComposeViewController.m */; };
+		2FD2690224B518F20072B156 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD2690124B518F20072B156 /* Post.m */; };
 		48BC5E84C6DEA10AC071435D /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C22580882D341AE42734C9 /* Pods_InstagramTests.framework */; };
 		4B0A3F2C06CAC0BA2BE01214 /* Pods_Instagram_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F3AC7B28AC76D8E7E3D31C /* Pods_Instagram_InstagramUITests.framework */; };
 		AF7FEA17A8D71C8069F9EBDA /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AF58AA649049C8E657A967 /* Pods_Instagram.framework */; };
@@ -68,6 +71,12 @@
 		2FD268EE24B4EC890072B156 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		2FD268F024B4ED6D0072B156 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		2FD268F124B4ED6D0072B156 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		2FD268F324B50FA70072B156 /* InstaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstaCell.h; sourceTree = "<group>"; };
+		2FD268F424B50FA70072B156 /* InstaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaCell.m; sourceTree = "<group>"; };
+		2FD268F624B513270072B156 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		2FD268F724B513270072B156 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		2FD2690024B518F20072B156 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		2FD2690124B518F20072B156 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		535F29F39F6322C63635CE06 /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57A0BAE8E4E751A407868C96 /* Pods-InstagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.release.xcconfig"; path = "Target Support Files/Pods-InstagramTests/Pods-InstagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		6AF07A864444627B498DE700 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +139,7 @@
 		2FCC13EB24B3CAD6005F6194 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				2FD268F924B517530072B156 /* Models */,
 				2FCC142224B3D427005F6194 /* Views */,
 				2FCC142124B3D41E005F6194 /* View Controllers */,
 				2FCC13EC24B3CAD6005F6194 /* AppDelegate.h */,
@@ -174,6 +184,8 @@
 				2FD268EE24B4EC890072B156 /* TimelineViewController.m */,
 				2FD268F024B4ED6D0072B156 /* ProfileViewController.h */,
 				2FD268F124B4ED6D0072B156 /* ProfileViewController.m */,
+				2FD268F624B513270072B156 /* ComposeViewController.h */,
+				2FD268F724B513270072B156 /* ComposeViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -181,8 +193,19 @@
 		2FCC142224B3D427005F6194 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2FD268F324B50FA70072B156 /* InstaCell.h */,
+				2FD268F424B50FA70072B156 /* InstaCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2FD268F924B517530072B156 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2FD2690024B518F20072B156 /* Post.h */,
+				2FD2690124B518F20072B156 /* Post.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		75DDCB0E57BD3F89D0D4D3D0 /* Frameworks */ = {
@@ -449,8 +472,11 @@
 				2FCC142524B3D43F005F6194 /* LoginViewController.m in Sources */,
 				2FCC142824B3DAF8005F6194 /* SignUpViewController.m in Sources */,
 				2FCC13EE24B3CAD6005F6194 /* AppDelegate.m in Sources */,
+				2FD268F824B513270072B156 /* ComposeViewController.m in Sources */,
 				2FCC13FF24B3CAD7005F6194 /* main.m in Sources */,
+				2FD2690224B518F20072B156 /* Post.m in Sources */,
 				2FD268F224B4ED6D0072B156 /* ProfileViewController.m in Sources */,
+				2FD268F524B50FA70072B156 /* InstaCell.m in Sources */,
 				2FCC13F124B3CAD6005F6194 /* SceneDelegate.m in Sources */,
 				2FD268EF24B4EC890072B156 /* TimelineViewController.m in Sources */,
 			);
@@ -623,6 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 583UGG5VM7;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -640,6 +667,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 583UGG5VM7;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
