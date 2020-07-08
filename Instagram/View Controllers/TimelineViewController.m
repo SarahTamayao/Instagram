@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 
 @end
@@ -26,6 +27,9 @@
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self queryPosts];
 }
 
@@ -41,6 +45,7 @@
                 NSLog(@"%@", posts[@"caption"]);
             }
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }

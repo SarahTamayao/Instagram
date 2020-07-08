@@ -100,22 +100,32 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins ago" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYH-Wt-krw">
+                                                    <rect key="frame" x="322" y="14" width="72" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Nif-Vf-RSf" firstAttribute="top" secondItem="vlh-HE-0Z0" secondAttribute="bottom" constant="17" id="2lY-HD-Avc"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Nif-Vf-RSf" secondAttribute="trailing" constant="34" id="DG6-PV-eRp"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Nif-Vf-RSf" secondAttribute="trailing" constant="34" id="DG6-PV-eRp"/>
                                                 <constraint firstAttribute="trailing" secondItem="vlh-HE-0Z0" secondAttribute="trailing" id="DQb-bb-UPS"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Nif-Vf-RSf" secondAttribute="bottom" constant="37" id="IaV-Uh-QmX"/>
+                                                <constraint firstItem="SYH-Wt-krw" firstAttribute="trailing" secondItem="0Zp-NG-C5Q" secondAttribute="trailingMargin" id="PnL-DF-QxP"/>
                                                 <constraint firstItem="vlh-HE-0Z0" firstAttribute="leading" secondItem="0Zp-NG-C5Q" secondAttribute="leading" id="TUa-ev-EF5"/>
                                                 <constraint firstItem="vlh-HE-0Z0" firstAttribute="top" secondItem="w6p-hV-hHl" secondAttribute="bottom" constant="8" id="XH5-Vt-DwM"/>
                                                 <constraint firstItem="Nif-Vf-RSf" firstAttribute="leading" secondItem="0Zp-NG-C5Q" secondAttribute="leadingMargin" constant="34" id="bm2-Wz-WEj"/>
                                                 <constraint firstItem="w6p-hV-hHl" firstAttribute="top" secondItem="0Zp-NG-C5Q" secondAttribute="topMargin" id="fYJ-jV-AGU"/>
                                                 <constraint firstItem="w6p-hV-hHl" firstAttribute="leading" secondItem="0Zp-NG-C5Q" secondAttribute="leadingMargin" id="jDA-Jc-z1J"/>
+                                                <constraint firstItem="SYH-Wt-krw" firstAttribute="top" secondItem="0Zp-NG-C5Q" secondAttribute="topMargin" constant="3" id="l75-nn-lkT"/>
                                                 <constraint firstItem="w6p-hV-hHl" firstAttribute="trailing" secondItem="0Zp-NG-C5Q" secondAttribute="trailingMargin" id="p1t-91-lMS"/>
+                                                <constraint firstItem="SYH-Wt-krw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="0Zp-NG-C5Q" secondAttribute="leadingMargin" constant="302" id="qNq-qd-MVF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="Nif-Vf-RSf" id="cJG-5V-9tR"/>
+                                            <outlet property="dateLabel" destination="SYH-Wt-krw" id="ET9-a3-KhQ"/>
                                             <outlet property="postimageView" destination="vlh-HE-0Z0" id="hVD-bE-0dn"/>
                                             <outlet property="usernameLabel" destination="w6p-hV-hHl" id="LmF-R3-Cqb"/>
                                         </connections>
