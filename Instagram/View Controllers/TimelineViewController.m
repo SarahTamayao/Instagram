@@ -54,6 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InstaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstaCell" forIndexPath:indexPath];
     Post *post = self.posts[indexPath.row];
+    [cell setPost:post];
     cell.captionLabel.text = post[@"caption"];
     PFUser *user = post[@"author"];
     cell.usernameLabel.text = user.username;

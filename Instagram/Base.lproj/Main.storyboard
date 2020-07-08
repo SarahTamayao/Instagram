@@ -87,7 +87,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-HE-0Z0">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-HE-0Z0" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="40" width="414" height="414"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="414" id="FxK-ak-IS3"/>
@@ -103,7 +103,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Nif-Vf-RSf" firstAttribute="top" secondItem="vlh-HE-0Z0" secondAttribute="bottom" constant="17" id="2lY-HD-Avc"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Nif-Vf-RSf" secondAttribute="trailing" constant="34" id="DG6-PV-eRp"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="Nif-Vf-RSf" secondAttribute="trailing" constant="34" id="DG6-PV-eRp"/>
                                                 <constraint firstAttribute="trailing" secondItem="vlh-HE-0Z0" secondAttribute="trailing" id="DQb-bb-UPS"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Nif-Vf-RSf" secondAttribute="bottom" constant="37" id="IaV-Uh-QmX"/>
                                                 <constraint firstItem="vlh-HE-0Z0" firstAttribute="leading" secondItem="0Zp-NG-C5Q" secondAttribute="leading" id="TUa-ev-EF5"/>
