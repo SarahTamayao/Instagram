@@ -18,6 +18,8 @@
 		2FCC142524B3D43F005F6194 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC142424B3D43F005F6194 /* LoginViewController.m */; };
 		2FCC142824B3DAF8005F6194 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC142724B3DAF8005F6194 /* SignUpViewController.m */; };
 		2FD1956924B65B8600636107 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1956824B65B8600636107 /* DetailsViewController.m */; };
+		2FD1956C24B664F500636107 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1956B24B664F500636107 /* PostCollectionCell.m */; };
+		2FD1956F24B675C800636107 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD1956E24B675C800636107 /* EditViewController.m */; };
 		2FD268EF24B4EC890072B156 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268EE24B4EC890072B156 /* TimelineViewController.m */; };
 		2FD268F224B4ED6D0072B156 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F124B4ED6D0072B156 /* ProfileViewController.m */; };
 		2FD268F524B50FA70072B156 /* InstaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD268F424B50FA70072B156 /* InstaCell.m */; };
@@ -70,6 +72,10 @@
 		2FCC142724B3DAF8005F6194 /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		2FD1956724B65B8600636107 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		2FD1956824B65B8600636107 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		2FD1956A24B664F500636107 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
+		2FD1956B24B664F500636107 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
+		2FD1956D24B675C800636107 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		2FD1956E24B675C800636107 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		2FD268ED24B4EC890072B156 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		2FD268EE24B4EC890072B156 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		2FD268F024B4ED6D0072B156 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -191,6 +197,8 @@
 				2FD268F724B513270072B156 /* ComposeViewController.m */,
 				2FD1956724B65B8600636107 /* DetailsViewController.h */,
 				2FD1956824B65B8600636107 /* DetailsViewController.m */,
+				2FD1956D24B675C800636107 /* EditViewController.h */,
+				2FD1956E24B675C800636107 /* EditViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -200,6 +208,8 @@
 			children = (
 				2FD268F324B50FA70072B156 /* InstaCell.h */,
 				2FD268F424B50FA70072B156 /* InstaCell.m */,
+				2FD1956A24B664F500636107 /* PostCollectionCell.h */,
+				2FD1956B24B664F500636107 /* PostCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,6 +493,8 @@
 				2FD2690224B518F20072B156 /* Post.m in Sources */,
 				2FD268F224B4ED6D0072B156 /* ProfileViewController.m in Sources */,
 				2FD268F524B50FA70072B156 /* InstaCell.m in Sources */,
+				2FD1956F24B675C800636107 /* EditViewController.m in Sources */,
+				2FD1956C24B664F500636107 /* PostCollectionCell.m in Sources */,
 				2FCC13F124B3CAD6005F6194 /* SceneDelegate.m in Sources */,
 				2FD268EF24B4EC890072B156 /* TimelineViewController.m in Sources */,
 			);
