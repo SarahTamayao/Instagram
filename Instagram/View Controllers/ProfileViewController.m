@@ -12,7 +12,6 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 
-
 @interface ProfileViewController ()
 
 @end
@@ -30,6 +29,18 @@
     sceneDelegate.window.rootViewController = loginViewController;
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
     }];
+}
+- (IBAction)tapEdit:(id)sender {
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self populatePage];
+}
+
+- (void)populatePage {
+    PFUser *currUser = [PFUser currentUser];
+    self.profilePic.file = currUser[@"profilePic"];
+    [self.profilePic loadInBackground];
 }
 
 /*
