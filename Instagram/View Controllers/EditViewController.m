@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    PFUser *currUser = [PFUser currentUser];
+    self.profilePic.file = currUser[@"profilePic"];
+    [self.profilePic loadInBackground];
 }
 - (IBAction)changePic:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
