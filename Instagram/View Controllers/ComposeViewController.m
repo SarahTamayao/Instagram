@@ -8,6 +8,8 @@
 
 #import "ComposeViewController.h"
 #import "Post.h"
+@import MBProgressHUD;
+
 
 @interface ComposeViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -23,12 +25,15 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)pressShare:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [Post postUserImage:self.originalImage withCaption:self.captionField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error posting: %@", error.localizedDescription);
         } else {
             NSLog(@"Post was successful");
             NSLog(@"%@", self.imageData);
+            [NSNotificationCenter.defaultCenter postNotificationName:@"postedPhoto"  object:nil];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
