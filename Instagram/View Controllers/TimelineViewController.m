@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "DetailsViewController.h"
 #import <Parse/Parse.h>
+@import MBProgressHUD;
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -26,11 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(queryPosts) name:@"postedPhoto" object:nil];
     [self queryPosts];
 }
 
@@ -45,6 +48,7 @@
             for (PFObject *posts in objects) {
                 NSLog(@"%@", posts[@"caption"]);
             }
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self.tableView reloadData];
             [self.refreshControl endRefreshing];
         } else {
