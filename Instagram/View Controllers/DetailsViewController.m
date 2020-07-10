@@ -21,6 +21,8 @@
     self.captionLabel.text = self.post.caption;
     self.likeLabel.text = self.post.likeCount.stringValue;
     PFUser *user = self.post.author;
+    self.userImage.file = user[@"profilePic"];
+    [self.userImage loadInBackground];
     self.usernameLabel.text = user.username;
     self.smallusernameLabel.text = user.username;
     NSDate *date = [self.post updatedAt];

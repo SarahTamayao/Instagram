@@ -23,6 +23,8 @@
     PFUser *currUser = [PFUser currentUser];
     self.profilePic.file = currUser[@"profilePic"];
     [self.profilePic loadInBackground];
+    self.bioField.text = currUser[@"bio"];
+    
 }
 - (IBAction)changePic:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -33,7 +35,9 @@
 }
 - (IBAction)tapDone:(id)sender {
     PFUser *currUser = [PFUser currentUser];
-    currUser[@"profilePic"] = [self getPFFileFromImage:_originalImage];
+    if (self.bioField.text != nil) {
+        currUser[@"bio"] = self.bioField.text;
+    }
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
@@ -42,7 +46,6 @@
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
-    
 }
 - (IBAction)tapCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -53,6 +56,17 @@
     // Get the image captured by the UIImagePickerController
     self.originalImage = info[UIImagePickerControllerOriginalImage];
     self.profilePic.image = self.originalImage;
+    PFUser *currUser = [PFUser currentUser];
+    currUser[@"profilePic"] = [self getPFFileFromImage:self.originalImage];
+    [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Error: %@", error.localizedDescription);
+        } else {
+            NSLog(@"Edit was successful");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 

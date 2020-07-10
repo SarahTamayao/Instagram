@@ -60,6 +60,9 @@
     PFUser *currUser = [PFUser currentUser];
     self.profilePic.file = currUser[@"profilePic"];
     [self.profilePic loadInBackground];
+    if (currUser[@"bio"] != nil) {
+        self.bioLabel.text = currUser[@"bio"];
+    }
 }
 
 - (void)queryUserPosts {
@@ -70,9 +73,6 @@
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (objects != nil) {
-            for (PFObject *post in objects) {
-                
-            }
             self.userPosts = objects;
             [self.collectionView reloadData];
         } else {
