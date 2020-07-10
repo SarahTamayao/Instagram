@@ -13,6 +13,7 @@
 #import "PostCollectionCell.h"
 #import <Parse/Parse.h>
 #import "Post.h"
+#import "DetailsViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -63,37 +64,45 @@
 
 - (void)queryUserPosts {
     PFUser *currUser = [PFUser currentUser];
-       PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-       [query whereKey:@"author" equalTo:currUser];
-       [query orderByDescending:@"createdAt"];
-       [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-           if (objects != nil) {
-               for (PFObject *post in objects) {
-                   NSLog(@"%@", post);
-               }
-               self.userPosts = objects;
-               [self.collectionView reloadData];
-           } else {
-               NSLog(@"%@", error.localizedDescription);
-           }
-       }];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:currUser];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (objects != nil) {
+            for (PFObject *post in objects) {
+                
+            }
+            self.userPosts = objects;
+            [self.collectionView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"details"]) {
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *post = self.userPosts[indexPath.item];
+        DetailsViewController *detailsController = [segue destinationViewController];
+        detailsController.post = post;
+    }
 }
-*/
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
-    Post *post = self.userPosts[indexPath.row];
+    Post *post = self.userPosts[indexPath.item];
     cell.postImage.file = post[@"image"];
     [cell.postImage loadInBackground];
     return cell;

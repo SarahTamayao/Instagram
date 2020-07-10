@@ -496,6 +496,7 @@
                                         <size key="customSize" width="80" height="79"/>
                                         <connections>
                                             <outlet property="postImage" destination="SYY-u0-Ri2" id="bGr-6o-D1A"/>
+                                            <segue destination="TuV-Qo-8tt" kind="show" identifier="details" id="5CJ-tK-CWK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -662,6 +663,9 @@
             <point key="canvasLocation" x="2039" y="1507"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5CJ-tK-CWK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1200px-Instagram_logo.svg" width="1200" height="429"/>
         <image name="feed_tab" width="25" height="25"/>

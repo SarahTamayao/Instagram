@@ -20,8 +20,9 @@
     // Do any additional setup after loading the view.
     self.captionLabel.text = self.post.caption;
     self.likeLabel.text = self.post.likeCount.stringValue;
-    self.usernameLabel.text = self.post.author.username;
-    self.smallusernameLabel.text = self.post.author.username;
+    PFUser *user = self.post.author;
+    self.usernameLabel.text = user.username;
+    self.smallusernameLabel.text = user.username;
     NSDate *date = [self.post updatedAt];
     self.dateLabel.text = date.timeAgoSinceNow;
     self.postImage.file = self.post[@"image"];
