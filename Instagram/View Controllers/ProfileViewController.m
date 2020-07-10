@@ -10,9 +10,13 @@
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "PostCollectionCell.h"
 #import <Parse/Parse.h>
+#import "Post.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *userPosts;
 
 @end
 
@@ -20,7 +24,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    [self queryUserPosts];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    //self.collectionView.frame = self.view.frame;
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    layout.minimumInteritemSpacing = 2;
+    layout.minimumLineSpacing = 2;
+    CGFloat postsPerLine = 3;
+    CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postsPerLine - 1)) / postsPerLine;
+    CGFloat itemHeight = itemWidth;
+    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
 }
 - (IBAction)tapLogout:(id)sender {
     SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
@@ -43,6 +61,26 @@
     [self.profilePic loadInBackground];
 }
 
+- (void)queryUserPosts {
+    PFUser *currUser = [PFUser currentUser];
+       PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+       [query whereKey:@"author" equalTo:currUser];
+       [query orderByDescending:@"createdAt"];
+       [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+           if (objects != nil) {
+               for (PFObject *post in objects) {
+                   NSLog(@"%@", post);
+               }
+               self.userPosts = objects;
+               [self.collectionView reloadData];
+           } else {
+               NSLog(@"%@", error.localizedDescription);
+           }
+       }];
+}
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -52,5 +90,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
+    Post *post = self.userPosts[indexPath.row];
+    cell.postImage.file = post[@"image"];
+    [cell.postImage loadInBackground];
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.userPosts.count;
+}
 
 @end
