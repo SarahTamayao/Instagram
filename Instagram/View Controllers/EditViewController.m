@@ -38,6 +38,7 @@
     if (self.bioField.text != nil) {
         currUser[@"bio"] = self.bioField.text;
     }
+    currUser[@"name"] = self.nameField.text;
     [currUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);

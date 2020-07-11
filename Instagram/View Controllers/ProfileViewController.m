@@ -54,6 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self populatePage];
+    [self queryUserPosts];
 }
 
 - (void)populatePage {
@@ -62,6 +63,9 @@
     [self.profilePic loadInBackground];
     if (currUser[@"bio"] != nil) {
         self.bioLabel.text = currUser[@"bio"];
+    }
+    if (currUser[@"name"] != nil) {
+        self.nameLabel.text = currUser[@"name"];
     }
 }
 
