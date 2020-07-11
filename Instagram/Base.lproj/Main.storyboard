@@ -154,7 +154,7 @@
                                             <outlet property="postimageView" destination="vlh-HE-0Z0" id="hVD-bE-0dn"/>
                                             <outlet property="profilePic" destination="hDR-v3-XzX" id="kf4-pg-zuR"/>
                                             <outlet property="usernameLabel" destination="w6p-hV-hHl" id="LmF-R3-Cqb"/>
-                                            <segue destination="TuV-Qo-8tt" kind="show" identifier="profileSegue" id="Hj8-Wu-uDi"/>
+                                            <segue destination="TuV-Qo-8tt" kind="show" identifier="detailSegue" id="Hj8-Wu-uDi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -183,6 +183,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="LA5-v5-UKy" id="18P-B6-hL2"/>
+                        <segue destination="zfL-Dl-vLw" kind="show" identifier="profileSegue" id="G2F-uN-pdm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emd-wT-ub1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -613,6 +614,8 @@
                     <connections>
                         <outlet property="bioLabel" destination="08H-aI-7SO" id="qBO-7H-3fe"/>
                         <outlet property="collectionView" destination="NLs-Ut-OLp" id="tOK-O0-am9"/>
+                        <outlet property="editButton" destination="JSh-oJ-8yS" id="xr4-hY-I3K"/>
+                        <outlet property="logoutButton" destination="Q6c-QM-kuP" id="Kca-sC-Jir"/>
                         <outlet property="nameLabel" destination="idy-tw-crr" id="j8a-jM-kDS"/>
                         <outlet property="profilePic" destination="28t-Tt-CpP" id="hE2-Ss-Pj9"/>
                     </connections>
@@ -717,6 +720,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="G2F-uN-pdm"/>
         <segue reference="5CJ-tK-CWK"/>
     </inferredMetricsTieBreakers>
     <resources>

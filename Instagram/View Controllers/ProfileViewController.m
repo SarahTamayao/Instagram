@@ -18,6 +18,8 @@
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *userPosts;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
 
@@ -27,6 +29,7 @@
     [super viewDidLoad];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    [self populatePage];
     [self queryUserPosts];
 }
 
@@ -60,22 +63,31 @@
 }
 
 - (void)populatePage {
-    PFUser *currUser = [PFUser currentUser];
-    self.profilePic.file = currUser[@"profilePic"];
-    [self.profilePic loadInBackground];
-    if (currUser[@"bio"] != nil) {
-        self.bioLabel.text = currUser[@"bio"];
+    if (self.loggedUser) {
+        self.logoutButton.hidden = YES;
+        self.editButton.hidden = YES;
+    } else {
+        self.user = [PFUser currentUser];
     }
-    if (currUser[@"name"] != nil) {
-        self.nameLabel.text = currUser[@"name"];
+    [self setInfo:self.user];
+    
+}
+
+- (void)setInfo:(PFUser *)user {
+    self.profilePic.file = user[@"profilePic"];
+    [self.profilePic loadInBackground];
+    if (user[@"bio"] != nil) {
+        self.bioLabel.text = user[@"bio"];
+    }
+    if (user[@"name"] != nil) {
+        self.nameLabel.text = user[@"name"];
     }
 }
 
 - (void)queryUserPosts {
-    PFUser *currUser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:currUser];
+    [query whereKey:@"author" equalTo:self.user];
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (objects != nil) {

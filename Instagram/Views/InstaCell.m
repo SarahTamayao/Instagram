@@ -15,6 +15,19 @@
     [super awakeFromNib];
     self.profilePic.layer.cornerRadius = (self.profilePic.frame.size.width) / 2;
     self.profilePic.clipsToBounds = YES;
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profilePic addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profilePic setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *profileTapnameGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    [self.profilePic addGestureRecognizer:profileTapnameGestureRecognizer];
+    [self.profilePic setUserInteractionEnabled:YES];
+
+}
+
+- (void)didTapUserProfile: (UITapGestureRecognizer *)sender {
+    [self.delegate postCell:self didTap:self.post[@"author"]];
+    NSLog(@"%@", self.post[@"author"]);
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

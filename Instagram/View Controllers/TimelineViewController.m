@@ -11,9 +11,10 @@
 #import "Post.h"
 #import "DetailsViewController.h"
 #import <Parse/Parse.h>
+#import "ProfileViewController.h"
 @import MBProgressHUD;
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, InstaCellDelegate>
 
 @property (strong, nonatomic) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -65,6 +66,7 @@
     InstaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstaCell" forIndexPath:indexPath];
     Post *post = self.posts[indexPath.row];
     [cell setPost:post];
+    cell.delegate = self;
     return cell;
 }
 
@@ -75,13 +77,26 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"profileSegue"]) {
+    if ([[segue identifier] isEqualToString:@"detailSegue"]) {
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Post *post = self.posts[indexPath.row];
         DetailsViewController *detailsController = [segue destinationViewController];
         detailsController.post = post;
+    } else if ([[segue identifier] isEqualToString:@"profileSegue"]) {
+        ProfileViewController *profileController = [segue destinationViewController];
+        PFUser *user = sender;
+        profileController.user = user;
+        if ([[PFUser currentUser].objectId isEqual:user.objectId]) {
+            profileController.loggedUser = NO;
+        } else {
+            profileController.loggedUser = YES;
+        }
     }
+}
+
+- (void)postCell:(InstaCell *)instaCell didTap:(PFUser *)user {
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
 

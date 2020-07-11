@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (strong, nonatomic) PFUser *user;
+@property (assign, nonatomic) BOOL loggedUser;
 
 @end
 
