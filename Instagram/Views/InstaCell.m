@@ -13,7 +13,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.profilePic.layer.cornerRadius = (self.profilePic.frame.size.width) / 2;
+    self.profilePic.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -29,6 +29,8 @@
     self.dateLabel.text = date.timeAgoSinceNow;
     self.postImage.file = self.post[@"image"];
     [self.postImage loadInBackground];
+    self.userImage.layer.cornerRadius = (self.userImage.frame.size.width) / 2;
+    self.userImage.clipsToBounds = YES;
 }
 
 /*

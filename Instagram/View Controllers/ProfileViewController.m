@@ -40,6 +40,8 @@
     CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postsPerLine - 1)) / postsPerLine;
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    self.profilePic.layer.cornerRadius = (self.profilePic.frame.size.width) / 2;
+    self.profilePic.clipsToBounds = YES;
 }
 - (IBAction)tapLogout:(id)sender {
     SceneDelegate *sceneDelegate = (SceneDelegate *) self.view.window.windowScene.delegate;
