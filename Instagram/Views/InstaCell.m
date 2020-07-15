@@ -26,8 +26,6 @@
 
 - (void)didTapUserProfile: (UITapGestureRecognizer *)sender {
     [self.delegate postCell:self didTap:self.post[@"author"]];
-    NSLog(@"%@", self.post[@"author"]);
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,11 +41,11 @@
     self.usernameLabel.text = user.username;
     NSDate *date = [post updatedAt];
     self.dateLabel.text = date.timeAgoSinceNow;
-    NSLog(@"%@", date);
     self.postimageView.file = post[@"image"];
     [self.postimageView loadInBackground];
-    self.profilePic.file = user[@"profilePic"];
-    [self.profilePic loadInBackground];
+    if (post[@"author"][@"profilePic"] != nil) {
+        self.profilePic.file = user[@"profilePic"];
+        [self.profilePic loadInBackground];
+    }
 }
-
 @end

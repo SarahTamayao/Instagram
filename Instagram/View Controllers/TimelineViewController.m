@@ -47,7 +47,7 @@
         if (objects != nil) {
             self.posts = objects;
             for (PFObject *posts in objects) {
-                NSLog(@"%@", posts[@"caption"]);
+                
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self.tableView reloadData];

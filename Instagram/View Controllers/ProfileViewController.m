@@ -74,6 +74,7 @@
 }
 
 - (void)setInfo:(PFUser *)user {
+    self.title = user.username;
     self.profilePic.file = user[@"profilePic"];
     [self.profilePic loadInBackground];
     if (user[@"bio"] != nil) {
